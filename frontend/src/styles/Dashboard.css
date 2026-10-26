@@ -1,0 +1,189 @@
+
+.dashboard-page,
+.booking-page {
+  min-height: 100vh;
+  background: #f6f8fc;
+  color: #17243b;
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 7%;
+  background: white;
+  box-shadow: 0 2px 12px #0000000a;
+}
+
+.dashboard-header a {
+  text-decoration: none;
+  color: #1769e0;
+  margin-left: 18px;
+}
+
+.dashboard-header .dashboard-logo {
+  font-size: 25px;
+  font-weight: bold;
+  margin-left: 0;
+}
+
+.dashboard-welcome {
+  margin: 30px auto;
+  padding: 35px;
+  max-width: 1100px;
+  background: #eaf2ff;
+  border-radius: 18px;
+}
+
+.dashboard-label {
+  color: #1769e0;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 1.3px;
+}
+
+.dashboard-primary-btn,
+.small-book-btn {
+  display: inline-block;
+  border: none;
+  border-radius: 8px;
+  background: #1769e0;
+  color: white;
+  padding: 12px 18px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.dashboard-stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+  max-width: 1100px;
+  margin: 25px auto;
+}
+
+.stat-card {
+  padding: 25px;
+  border-radius: 14px;
+  background: white;
+  box-shadow: 0 4px 15px #17243b08;
+}
+
+.stat-card span {
+  font-size: 25px;
+}
+
+.stat-card h2 {
+  margin-bottom: 5px;
+  color: #1769e0;
+}
+
+.dashboard-bookings {
+  max-width: 1100px;
+  margin: 35px auto;
+  padding: 25px;
+  background: white;
+  border-radius: 14px;
+}
+
+.dashboard-muted {
+  color: #657187;
+  line-height: 1.6;
+}
+
+.booking-list {
+  display: grid;
+  gap: 15px;
+}
+
+.booking-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  padding: 18px;
+  border: 1px solid #e5ebf4;
+  border-radius: 12px;
+}
+
+.booking-item h3,
+.booking-item p {
+  margin: 5px 0;
+}
+
+.booking-status {
+  color: #1769e0;
+  background: #edf5ff;
+  border-radius: 20px;
+  padding: 8px 12px;
+  font-size: 13px;
+}
+
+.booking-form-container {
+  max-width: 680px;
+  margin: 35px auto;
+  padding: 32px;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 5px 25px #17243b0c;
+}
+
+.homefix-form {
+  display: grid;
+  gap: 12px;
+  margin-top: 25px;
+}
+
+.homefix-form label {
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.homefix-form input,
+.homefix-form select,
+.homefix-form textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #dbe3ef;
+  border-radius: 8px;
+  font: inherit;
+}
+
+.booking-date-time {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.booking-date-time > div {
+  display: grid;
+  gap: 10px;
+}
+
+@media (max-width: 1150px) {
+  .dashboard-welcome,
+  .dashboard-stats,
+  .dashboard-bookings {
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+}
+
+@media (max-width: 650px) {
+  .dashboard-stats {
+    grid-template-columns: 1fr;
+    margin: 20px 5%;
+  }
+
+  .dashboard-welcome,
+  .dashboard-bookings,
+  .booking-form-container {
+    padding: 22px;
+    margin: 20px 5%;
+  }
+
+  .booking-date-time {
+    grid-template-columns: 1fr;
+  }
+}

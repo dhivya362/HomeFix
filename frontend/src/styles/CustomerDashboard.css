@@ -1,0 +1,1686 @@
+
+/* =========================================
+   HOMEFIX CUSTOMER DASHBOARD
+   Premium Purple + Blue Theme
+========================================= */
+
+:root {
+  --customer-primary: #6d28d9;
+  --customer-primary-dark: #4c1d95;
+  --customer-secondary: #2563eb;
+  --customer-sidebar: #172554;
+  --customer-sidebar-light: #1e3a8a;
+  --customer-bg: #f5f7fc;
+  --customer-white: #ffffff;
+  --customer-text: #172033;
+  --customer-muted: #64748b;
+  --customer-border: #e2e8f0;
+  --customer-success: #15803d;
+  --customer-danger: #dc2626;
+  --customer-warning: #d97706;
+  --customer-radius: 16px;
+  --customer-shadow: 0 5px 22px rgba(15, 23, 42, 0.06);
+}
+
+/* Reset */
+
+.customer-dashboard,
+.customer-dashboard * {
+  box-sizing: border-box;
+}
+
+.customer-dashboard {
+  min-height: 100vh;
+  width: 100%;
+  background: var(--customer-bg);
+  color: var(--customer-text);
+  font-family: Inter, "Segoe UI", Arial, sans-serif;
+  font-size: 14px;
+}
+
+.customer-dashboard button,
+.customer-dashboard input,
+.customer-dashboard select,
+.customer-dashboard textarea {
+  font: inherit;
+}
+
+.customer-dashboard button {
+  cursor: pointer;
+}
+
+.customer-dashboard button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.customer-dashboard a {
+  text-decoration: none;
+}
+
+/* =========================================
+   SIDEBAR LAYOUT
+========================================= */
+
+.customer-sidebar-layout {
+  display: flex;
+  align-items: stretch;
+}
+
+.customer-sidebar {
+  width: 250px;
+  min-width: 250px;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 26px 16px 18px;
+  background: linear-gradient(
+    180deg,
+    var(--customer-sidebar) 0%,
+    #111b45 100%
+  );
+  color: #fff;
+  overflow-y: auto;
+  z-index: 100;
+}
+
+.customer-sidebar-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 12px 26px;
+  color: #fff;
+  font-size: 23px;
+  font-weight: 800;
+  letter-spacing: -0.6px;
+}
+
+.customer-sidebar-brand-icon {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  border-radius: 13px;
+  background: linear-gradient(
+    135deg,
+    #8b5cf6,
+    #3b82f6
+  );
+  box-shadow: 0 5px 16px rgba(109, 40, 217, 0.3);
+  font-size: 23px;
+}
+
+.customer-sidebar-label {
+  margin: 0 12px 12px;
+  color: #94a3b8;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+}
+
+.customer-sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  min-width: 0;
+}
+
+.customer-sidebar-link {
+  width: 100%;
+  min-height: 47px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 11px 12px;
+  border: 1px solid transparent;
+  border-radius: 11px;
+  background: transparent;
+  color: #cbd5e1;
+  text-align: left;
+  font-size: 13px;
+  font-weight: 600;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.customer-sidebar-link:hover,
+.customer-sidebar-link:focus-visible {
+  background: rgba(255, 255, 255, 0.09);
+  color: #fff;
+}
+
+.customer-sidebar-link:focus-visible {
+  outline: 2px solid #a78bfa;
+  outline-offset: 2px;
+}
+
+.customer-sidebar-icon {
+  width: 25px;
+  min-width: 25px;
+  display: inline-grid;
+  place-items: center;
+  font-size: 18px;
+}
+
+.customer-sidebar-link-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.customer-sidebar-badge {
+  min-width: 23px;
+  min-height: 23px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3px 6px;
+  border-radius: 7px;
+  background: #7c3aed;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.customer-sidebar-notifications {
+  font-family: inherit;
+}
+
+.customer-sidebar-bottom {
+  margin-top: auto;
+  padding-top: 24px;
+}
+
+.customer-sidebar-user {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding: 14px 10px;
+  margin-bottom: 10px;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.customer-sidebar-avatar {
+  width: 39px;
+  height: 39px;
+  min-width: 39px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: rgba(139, 92, 246, 0.25);
+  font-size: 19px;
+}
+
+.customer-sidebar-user strong,
+.customer-sidebar-user small {
+  display: block;
+}
+
+.customer-sidebar-user strong {
+  color: #fff;
+  font-size: 13px;
+}
+
+.customer-sidebar-user small {
+  margin-top: 4px;
+  color: #a5b4fc;
+  font-size: 11px;
+}
+
+.customer-sidebar-logout {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  border: 1px solid rgba(248, 113, 113, 0.22);
+  border-radius: 10px;
+  background: rgba(220, 38, 38, 0.1);
+  color: #fecaca;
+  font-weight: 700;
+  text-align: left;
+  transition: background 0.2s ease;
+}
+
+.customer-sidebar-logout:hover {
+  background: rgba(220, 38, 38, 0.24);
+}
+
+/* =========================================
+   NOTIFICATIONS IN SIDEBAR
+========================================= */
+
+.sidebar-notification-panel {
+  width: 100%;
+  max-height: 340px;
+  margin-top: 5px;
+  padding: 12px;
+  overflow-y: auto;
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  border-radius: 12px;
+  background: #1e293b;
+  color: #e2e8f0;
+}
+
+.notification-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.notification-heading h3 {
+  margin: 0;
+  font-size: 14px;
+}
+
+.notification-heading button,
+.notification-item button {
+  padding: 6px 9px;
+  border: 1px solid #c4b5fd;
+  border-radius: 7px;
+  background: transparent;
+  color: inherit;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.notification-item {
+  padding: 12px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  overflow-wrap: anywhere;
+}
+
+.notification-item strong {
+  display: block;
+  color: #fff;
+  font-size: 12px;
+}
+
+.notification-item p {
+  margin: 7px 0;
+  color: #cbd5e1;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.notification-item small {
+  display: block;
+  margin-bottom: 9px;
+  color: #94a3b8;
+  font-size: 10px;
+}
+
+.notification-item.is-unread {
+  border-left: 3px solid #a78bfa;
+  padding-left: 9px;
+}
+
+.notification-item.is-read {
+  opacity: 0.75;
+}
+
+.notification-empty,
+.notification-error {
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.notification-error {
+  color: #fca5a5;
+}
+
+/* =========================================
+   MAIN CONTENT
+========================================= */
+
+.customer-content {
+  flex: 1;
+  min-width: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.customer-main {
+  width: 100%;
+  max-width: 1600px;
+  flex: 1;
+  margin: 0 auto;
+  padding: 28px 32px 24px;
+}
+
+/* =========================================
+   WELCOME SECTION
+========================================= */
+
+.customer-welcome {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 27px 30px;
+  margin-bottom: 22px;
+  border: 1px solid #e5e7eb;
+  border-radius: 18px;
+  background: linear-gradient(
+    120deg,
+    #ffffff 0%,
+    #f5f3ff 65%,
+    #eff6ff 100%
+  );
+  box-shadow: var(--customer-shadow);
+}
+
+.welcome-label {
+  margin: 0 0 9px;
+  color: var(--customer-primary);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.6px;
+}
+
+.customer-welcome h1 {
+  margin: 0;
+  color: #172554;
+  font-size: clamp(24px, 2.2vw, 32px);
+  font-weight: 800;
+  line-height: 1.25;
+  letter-spacing: -0.7px;
+}
+
+.customer-welcome > div > p:last-child {
+  margin: 10px 0 0;
+  color: var(--customer-muted);
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+.browse-services-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  min-height: 43px;
+  padding: 12px 19px;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(
+    135deg,
+    var(--customer-primary),
+    var(--customer-secondary)
+  );
+  color: #fff;
+  font-size: 12px;
+  font-weight: 800;
+  box-shadow: 0 5px 14px rgba(109, 40, 217, 0.18);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.browse-services-btn:hover {
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(109, 40, 217, 0.25);
+}
+
+/* =========================================
+   DASHBOARD STATS
+========================================= */
+
+.customer-stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 17px;
+  margin-bottom: 28px;
+}
+
+.stat-card {
+  position: relative;
+  min-width: 0;
+  padding: 21px 22px;
+  border: 1px solid var(--customer-border);
+  border-radius: var(--customer-radius);
+  background: var(--customer-white);
+  box-shadow: var(--customer-shadow);
+  overflow: hidden;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.stat-card::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(
+    180deg,
+    var(--customer-primary),
+    var(--customer-secondary)
+  );
+  content: "";
+}
+
+.stat-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.09);
+}
+
+.stat-card span {
+  display: block;
+  color: var(--customer-muted);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.stat-card h2 {
+  margin: 12px 0 0;
+  color: #172554;
+  font-size: 30px;
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+/* =========================================
+   COMMON SECTIONS
+========================================= */
+
+.customer-section {
+  min-width: 0;
+  margin-bottom: 30px;
+  scroll-margin-top: 20px;
+}
+
+.section-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  margin-bottom: 17px;
+}
+
+.section-heading h2 {
+  margin: 0;
+  color: #172554;
+  font-size: 21px;
+  font-weight: 800;
+  letter-spacing: -0.35px;
+}
+
+.section-heading p {
+  margin: 6px 0 0;
+  color: var(--customer-muted);
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.view-all-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  padding: 9px 13px;
+  border: 1px solid #ddd6fe;
+  border-radius: 9px;
+  background: #f5f3ff;
+  color: var(--customer-primary);
+  font-size: 12px;
+  font-weight: 800;
+  transition: all 0.2s ease;
+}
+
+.view-all-link:hover {
+  border-color: var(--customer-primary);
+  background: var(--customer-primary);
+  color: #fff;
+}
+
+/* =========================================
+   SERVICES GRID
+========================================= */
+
+.customer-services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 17px;
+}
+
+.customer-service-card {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 21px;
+  border: 1px solid var(--customer-border);
+  border-radius: var(--customer-radius);
+  background: #fff;
+  box-shadow: var(--customer-shadow);
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.customer-service-card:hover {
+  transform: translateY(-4px);
+  border-color: #c4b5fd;
+  box-shadow: 0 12px 28px rgba(49, 46, 129, 0.1);
+}
+
+.service-card-icon {
+  width: 47px;
+  height: 47px;
+  display: grid;
+  place-items: center;
+  margin-bottom: 15px;
+  border: 1px solid #e9d5ff;
+  border-radius: 13px;
+  background: linear-gradient(135deg, #f3e8ff, #eff6ff);
+  font-size: 23px;
+}
+
+.customer-service-card h3 {
+  margin: 0;
+  color: #172554;
+  font-size: 16px;
+  font-weight: 800;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+}
+
+.customer-service-card > p {
+  flex: 1;
+  margin: 9px 0 18px;
+  color: var(--customer-muted);
+  font-size: 12px;
+  line-height: 1.7;
+  overflow-wrap: anywhere;
+}
+
+.service-card-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding-top: 15px;
+  border-top: 1px solid #f1f5f9;
+}
+
+.service-card-bottom > strong {
+  color: var(--customer-primary);
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.book-service-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 9px 12px;
+  border-radius: 8px;
+  background: #ede9fe;
+  color: var(--customer-primary-dark);
+  font-size: 11px;
+  font-weight: 800;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+
+.book-service-btn:hover {
+  background: var(--customer-primary);
+  color: #fff;
+}
+
+/* =========================================
+   BOOKINGS LIST
+========================================= */
+
+.customer-bookings-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.customer-booking-card {
+  min-width: 0;
+  padding: 23px;
+  border: 1px solid var(--customer-border);
+  border-radius: 17px;
+  background: #fff;
+  box-shadow: var(--customer-shadow);
+  overflow: hidden;
+}
+
+.booking-card-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 15px;
+  padding-bottom: 17px;
+  border-bottom: 1px solid #edf0f7;
+}
+
+.booking-card-top h3 {
+  margin: 0;
+  color: #172554;
+  font-size: 18px;
+  font-weight: 800;
+  line-height: 1.4;
+}
+
+.booking-card-top p {
+  margin: 6px 0 0;
+  color: var(--customer-muted);
+  font-size: 12px;
+}
+
+.booking-status {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  padding: 7px 11px;
+  border-radius: 30px;
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: capitalize;
+}
+
+.booking-status.pending {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.booking-status.accepted {
+  background: #dbeafe;
+  color: #1d4ed8;
+}
+
+.booking-status.completed {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.booking-status.rejected,
+.booking-status.cancelled {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+.booking-details-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 15px;
+  padding: 19px 0;
+}
+
+.booking-details-grid > div {
+  min-width: 0;
+  padding: 13px;
+  border: 1px solid #edf0f7;
+  border-radius: 11px;
+  background: #fafbff;
+}
+
+.booking-detail-label {
+  display: block;
+  margin-bottom: 7px;
+  color: var(--customer-muted);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.booking-details-grid p {
+  margin: 0;
+  color: #172554;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+
+/* =========================================
+   TECHNICIAN LIVE TRACKING
+========================================= */
+
+.technician-live-tracking {
+  min-width: 0;
+  margin: 0 0 18px;
+  padding: 18px;
+  border: 1px solid #dbeafe;
+  border-radius: 13px;
+  background: linear-gradient(135deg, #eff6ff, #f5f3ff);
+  overflow: hidden;
+}
+
+.technician-live-tracking h4 {
+  margin: 0;
+  color: #1e3a8a;
+  font-size: 15px;
+  font-weight: 800;
+}
+
+.technician-live-tracking > p {
+  margin: 7px 0 13px;
+  color: #64748b;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.technician-live-tracking > * {
+  max-width: 100%;
+}
+
+/* =========================================
+   WORK PHOTOS
+========================================= */
+
+.customer-work-photos {
+  min-width: 0;
+  margin-bottom: 18px;
+  padding: 18px;
+  border: 1px solid var(--customer-border);
+  border-radius: 13px;
+  background: #fbfcff;
+}
+
+.customer-work-photos-heading h4 {
+  margin: 0;
+  color: #172554;
+  font-size: 15px;
+  font-weight: 800;
+}
+
+.customer-work-photos-heading p {
+  margin: 6px 0 15px;
+  color: var(--customer-muted);
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.customer-work-photo-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 15px;
+}
+
+.customer-work-photo-item {
+  min-width: 0;
+  padding: 12px;
+  border: 1px solid #e2e8f0;
+  border-radius: 11px;
+  background: #fff;
+}
+
+.customer-work-photo-item h5 {
+  margin: 0 0 10px;
+  color: #334155;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.customer-photo-preview-btn {
+  width: 100%;
+  display: block;
+  padding: 0;
+  border: none;
+  border-radius: 9px;
+  background: #eef2ff;
+  overflow: hidden;
+}
+
+.customer-work-photo {
+  width: 100%;
+  height: 190px;
+  display: block;
+  object-fit: cover;
+  transition: transform 0.25s ease;
+}
+
+.customer-photo-preview-btn:hover .customer-work-photo {
+  transform: scale(1.025);
+}
+
+.customer-photo-open-link {
+  display: inline-flex;
+  margin-top: 10px;
+  color: var(--customer-primary);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.customer-photo-open-link:hover {
+  color: var(--customer-secondary);
+  text-decoration: underline;
+}
+
+.customer-no-work-photos {
+  margin: 0;
+  padding: 14px;
+  border-radius: 9px;
+  background: #f1f5f9;
+  color: var(--customer-muted);
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+/* =========================================
+   PRICE DETAILS
+========================================= */
+
+.booking-price-details {
+  margin-top: 5px;
+  padding: 19px;
+  border: 1px solid #e5e7eb;
+  border-radius: 13px;
+  background: #fafaff;
+}
+
+.booking-price-details > h4 {
+  margin: 0 0 13px;
+  color: #172554;
+  font-size: 15px;
+  font-weight: 800;
+}
+
+.booking-price-details p {
+  margin: 8px 0;
+  color: #475569;
+  font-size: 12px;
+  line-height: 1.65;
+  overflow-wrap: anywhere;
+}
+
+.additional-works-list {
+  padding: 12px;
+  margin-bottom: 12px;
+  border-radius: 9px;
+  background: #fff;
+  border: 1px solid #e9d5ff;
+}
+
+.additional-works-list p:first-child {
+  margin-top: 0;
+}
+
+.additional-works-list p:last-child {
+  margin-bottom: 0;
+}
+
+.booking-estimated-total {
+  padding-top: 12px;
+  margin-top: 12px !important;
+  border-top: 1px solid #ddd6fe;
+}
+
+.booking-estimated-total strong {
+  color: var(--customer-primary-dark);
+  font-size: 16px;
+}
+
+.booking-amount-unavailable {
+  padding: 10px;
+  border-radius: 8px;
+  background: #fff7ed;
+  color: #9a3412 !important;
+}
+
+/* =========================================
+   ACTION BUTTONS
+========================================= */
+
+.invoice-payment-actions,
+.booking-card-actions,
+.reschedule-form-actions,
+.review-form-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+.invoice-payment-actions {
+  margin-top: 16px;
+}
+
+.booking-card-actions {
+  margin-top: 17px;
+}
+
+.customer-dashboard .download-invoice-btn,
+.customer-dashboard .pay-booking-btn,
+.customer-dashboard .reschedule-booking-btn,
+.customer-dashboard .cancel-booking-btn,
+.customer-dashboard .submit-reschedule-btn,
+.customer-dashboard .rate-service-btn,
+.customer-dashboard .submit-review-btn,
+.customer-dashboard .cancel-review-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 39px;
+  padding: 10px 14px;
+  border: 1px solid transparent;
+  border-radius: 9px;
+  font-size: 12px;
+  font-weight: 800;
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.customer-dashboard .download-invoice-btn {
+  background: #eef2ff;
+  border-color: #c7d2fe;
+  color: #3730a3;
+}
+
+.customer-dashboard .download-invoice-btn:hover {
+  background: #e0e7ff;
+}
+
+.customer-dashboard .pay-booking-btn,
+.customer-dashboard .submit-reschedule-btn,
+.customer-dashboard .submit-review-btn {
+  background: linear-gradient(
+    135deg,
+    var(--customer-primary),
+    var(--customer-secondary)
+  );
+  color: #fff;
+}
+
+.customer-dashboard .pay-booking-btn:hover,
+.customer-dashboard .submit-reschedule-btn:hover,
+.customer-dashboard .submit-review-btn:hover {
+  transform: translateY(-1px);
+}
+
+.customer-dashboard .reschedule-booking-btn {
+  background: #ede9fe;
+  border-color: #ddd6fe;
+  color: #5b21b6;
+}
+
+.customer-dashboard .reschedule-booking-btn:hover {
+  background: #ddd6fe;
+}
+
+.customer-dashboard .cancel-booking-btn {
+  background: #fff1f2;
+  border-color: #fecdd3;
+  color: #be123c;
+}
+
+.customer-dashboard .cancel-booking-btn:hover {
+  background: #ffe4e6;
+}
+
+.customer-dashboard .rate-service-btn {
+  background: #fef3c7;
+  border-color: #fde68a;
+  color: #92400e;
+}
+
+.customer-dashboard .rate-service-btn:hover {
+  background: #fde68a;
+}
+
+.customer-dashboard .cancel-review-btn {
+  background: #f1f5f9;
+  border-color: #e2e8f0;
+  color: #475569;
+}
+
+/* =========================================
+   PAYMENT OPTIONS
+========================================= */
+
+.payment-options-panel {
+  margin-top: 16px;
+  padding: 18px;
+  border: 1px solid #c4b5fd;
+  border-radius: 12px;
+  background: #f5f3ff;
+}
+
+.payment-options-panel h4 {
+  margin: 0 0 12px;
+  color: #4c1d95;
+  font-size: 15px;
+  font-weight: 800;
+}
+
+.payment-amount {
+  margin: 0 0 15px;
+  color: #475569;
+  font-size: 13px;
+}
+
+.payment-amount strong {
+  color: var(--customer-primary-dark);
+  font-size: 16px;
+}
+
+.payment-method-option {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 12px;
+  margin-bottom: 9px;
+  border: 1px solid #e2e8f0;
+  border-radius: 9px;
+  background: #fff;
+  color: #334155;
+  font-size: 12px;
+  line-height: 1.6;
+  cursor: pointer;
+}
+
+.payment-method-option input {
+  margin-top: 3px;
+  accent-color: var(--customer-primary);
+}
+
+.payment-options-panel > .pay-booking-btn {
+  margin-top: 7px;
+}
+
+.payment-note {
+  margin: 12px 0 0;
+  color: #64748b;
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+/* =========================================
+   RESCHEDULE FORM
+========================================= */
+
+.reschedule-form {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 10px;
+  margin-top: 17px;
+  padding: 20px;
+  border: 1px solid #c4b5fd;
+  border-radius: 13px;
+  background: #faf8ff;
+}
+
+.reschedule-form h4 {
+  margin: 0 0 6px;
+  color: #4c1d95;
+  font-size: 16px;
+  font-weight: 800;
+}
+
+.reschedule-form label,
+.service-review-form label {
+  margin-top: 4px;
+  color: #334155;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.reschedule-form input,
+.reschedule-form select,
+.service-review-form textarea {
+  width: 100%;
+  min-height: 43px;
+  padding: 11px 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 9px;
+  outline: none;
+  background: #fff;
+  color: #172033;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.reschedule-form input:focus,
+.reschedule-form select:focus,
+.service-review-form textarea:focus {
+  border-color: var(--customer-primary);
+  box-shadow: 0 0 0 3px rgba(109, 40, 217, 0.1);
+}
+
+.reschedule-form input:disabled,
+.reschedule-form select:disabled,
+.service-review-form textarea:disabled {
+  background: #f1f5f9;
+  cursor: not-allowed;
+}
+
+.reschedule-form-actions {
+  margin-top: 8px;
+}
+
+/* =========================================
+   REVIEWS
+========================================= */
+
+.booking-review-section {
+  margin-top: 17px;
+  padding-top: 17px;
+  border-top: 1px solid #edf0f7;
+}
+
+.review-submitted {
+  display: inline-flex;
+  padding: 10px 13px;
+  border-radius: 9px;
+  background: #dcfce7;
+  color: #166534;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.service-review-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 15px;
+  padding: 20px;
+  border: 1px solid #fde68a;
+  border-radius: 13px;
+  background: #fffbeb;
+}
+
+.service-review-form h4 {
+  margin: 0;
+  color: #92400e;
+  font-size: 16px;
+  font-weight: 800;
+}
+
+.rating-stars {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.customer-dashboard .rating-star {
+  padding: 2px;
+  border: none;
+  background: transparent;
+  color: #cbd5e1;
+  font-size: 30px;
+  line-height: 1.2;
+  transition: transform 0.15s ease, color 0.15s ease;
+}
+
+.customer-dashboard .rating-star.selected {
+  color: #f59e0b;
+}
+
+.customer-dashboard .rating-star:hover {
+  transform: scale(1.12);
+}
+
+.service-review-form textarea {
+  min-height: 95px;
+  resize: vertical;
+  line-height: 1.6;
+}
+
+/* =========================================
+   EMPTY STATE
+========================================= */
+
+.empty-state {
+  padding: 35px 20px;
+  border: 1px dashed #c4b5fd;
+  border-radius: 15px;
+  background: #fff;
+  color: var(--customer-muted);
+  text-align: center;
+  line-height: 1.7;
+}
+
+.empty-state h3 {
+  margin: 0 0 8px;
+  color: #172554;
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.empty-state p {
+  margin: 0 0 18px;
+  font-size: 13px;
+}
+
+.empty-state .browse-services-btn {
+  margin-top: 5px;
+}
+
+/* =========================================
+   ERROR AND SUCCESS MESSAGES
+========================================= */
+
+.dashboard-error,
+.dashboard-success {
+  padding: 13px 16px;
+  margin-bottom: 18px;
+  border-radius: 10px;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+
+.dashboard-error {
+  border: 1px solid #fecaca;
+  background: #fef2f2;
+  color: #b91c1c;
+}
+
+.dashboard-success {
+  border: 1px solid #bbf7d0;
+  background: #f0fdf4;
+  color: #166534;
+}
+
+/* =========================================
+   LOADING
+========================================= */
+
+.dashboard-loading {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+  color: var(--customer-primary);
+  font-size: 16px;
+  font-weight: 800;
+}
+
+/* =========================================
+   PHOTO MODAL
+========================================= */
+
+.customer-photo-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(15, 23, 42, 0.78);
+  backdrop-filter: blur(5px);
+}
+
+.customer-photo-modal-content {
+  width: min(850px, 100%);
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  padding: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.3);
+  overflow: auto;
+}
+
+.customer-photo-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.customer-photo-modal-header h3 {
+  margin: 0;
+  color: #172554;
+  font-size: 16px;
+  font-weight: 800;
+  overflow-wrap: anywhere;
+}
+
+.customer-photo-modal-close {
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+  border: none;
+  border-radius: 9px;
+  background: #fee2e2;
+  color: #b91c1c;
+  font-size: 17px;
+  font-weight: 800;
+}
+
+.customer-photo-modal-close:hover {
+  background: #fecaca;
+}
+
+.customer-photo-modal-image {
+  width: 100%;
+  max-height: 68vh;
+  display: block;
+  border-radius: 10px;
+  background: #f1f5f9;
+  object-fit: contain;
+}
+
+/* =========================================
+   FOOTER
+========================================= */
+
+.customer-footer {
+  margin-top: auto;
+  padding: 18px 25px;
+  border-top: 1px solid var(--customer-border);
+  background: #fff;
+  text-align: center;
+}
+
+.customer-footer p {
+  margin: 0;
+  color: var(--customer-muted);
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+/* =========================================
+   TABLET RESPONSIVE
+========================================= */
+
+@media (max-width: 1100px) {
+  .customer-sidebar {
+    width: 225px;
+    min-width: 225px;
+    padding-right: 12px;
+    padding-left: 12px;
+  }
+
+  .customer-main {
+    padding: 24px 22px;
+  }
+
+  .customer-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .customer-services-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* =========================================
+   MOBILE RESPONSIVE
+========================================= */
+
+@media (max-width: 700px) {
+  .customer-sidebar-layout {
+    flex-direction: column;
+  }
+
+  .customer-sidebar {
+    position: relative;
+    top: auto;
+    width: 100%;
+    min-width: 0;
+    height: auto;
+    padding: 14px;
+    overflow: visible;
+  }
+
+  .customer-sidebar-brand {
+    padding: 0 5px 15px;
+    font-size: 21px;
+  }
+
+  .customer-sidebar-brand-icon {
+    width: 38px;
+    height: 38px;
+  }
+
+  .customer-sidebar-label {
+    margin: 0 5px 9px;
+  }
+
+  .customer-sidebar-nav {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 7px;
+  }
+
+  .customer-sidebar-link {
+    min-width: 0;
+    min-height: 43px;
+    gap: 7px;
+    padding: 9px;
+    font-size: 11px;
+  }
+
+  .customer-sidebar-icon {
+    width: 21px;
+    min-width: 21px;
+    font-size: 16px;
+  }
+
+  .customer-sidebar-badge {
+    min-width: 20px;
+    min-height: 20px;
+    padding: 2px 5px;
+    font-size: 10px;
+  }
+
+  .customer-sidebar-bottom {
+    padding-top: 12px;
+  }
+
+  .customer-sidebar-user {
+    padding: 11px 5px;
+    margin-bottom: 7px;
+  }
+
+  .customer-sidebar-logout {
+    min-height: 42px;
+  }
+
+  .sidebar-notification-panel {
+    grid-column: 1 / -1;
+    max-height: 280px;
+  }
+
+  .customer-main {
+    padding: 18px 14px 22px;
+  }
+
+  .customer-welcome {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 17px;
+    padding: 22px 19px;
+    margin-bottom: 18px;
+  }
+
+  .customer-welcome h1 {
+    font-size: 25px;
+  }
+
+  .customer-welcome > div > p:last-child {
+    font-size: 12px;
+  }
+
+  .customer-stats {
+    gap: 11px;
+    margin-bottom: 23px;
+  }
+
+  .stat-card {
+    padding: 17px 15px;
+    border-radius: 12px;
+  }
+
+  .stat-card span {
+    font-size: 11px;
+  }
+
+  .stat-card h2 {
+    margin-top: 9px;
+    font-size: 26px;
+  }
+
+  .customer-section {
+    margin-bottom: 25px;
+  }
+
+  .section-heading {
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+
+  .section-heading h2 {
+    font-size: 18px;
+  }
+
+  .section-heading p {
+    font-size: 11px;
+  }
+
+  .view-all-link {
+    padding: 8px 9px;
+    font-size: 10px;
+  }
+
+  .customer-services-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 12px;
+  }
+
+  .customer-service-card {
+    padding: 17px;
+  }
+
+  .customer-booking-card {
+    padding: 16px;
+    border-radius: 13px;
+  }
+
+  .booking-card-top {
+    gap: 9px;
+  }
+
+  .booking-card-top h3 {
+    font-size: 16px;
+  }
+
+  .booking-status {
+    padding: 6px 8px;
+    font-size: 10px;
+  }
+
+  .booking-details-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 9px;
+    padding: 14px 0;
+  }
+
+  .booking-details-grid > div {
+    padding: 11px;
+  }
+
+  .technician-live-tracking,
+  .customer-work-photos,
+  .booking-price-details {
+    padding: 13px;
+  }
+
+  .customer-work-photo-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .customer-work-photo {
+    height: 210px;
+  }
+
+  .invoice-payment-actions,
+  .booking-card-actions,
+  .reschedule-form-actions,
+  .review-form-actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .customer-dashboard .download-invoice-btn,
+  .customer-dashboard .pay-booking-btn,
+  .customer-dashboard .reschedule-booking-btn,
+  .customer-dashboard .cancel-booking-btn,
+  .customer-dashboard .submit-reschedule-btn,
+  .customer-dashboard .rate-service-btn,
+  .customer-dashboard .submit-review-btn,
+  .customer-dashboard .cancel-review-btn {
+    width: 100%;
+    min-height: 42px;
+  }
+
+  .customer-photo-modal {
+    padding: 12px;
+  }
+
+  .customer-photo-modal-content {
+    padding: 12px;
+  }
+
+  .customer-footer {
+    padding: 15px 12px;
+  }
+}
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 380px) {
+  .customer-main {
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+
+  .customer-sidebar {
+    padding: 11px;
+  }
+
+  .customer-sidebar-link {
+    gap: 5px;
+    padding: 8px 6px;
+    font-size: 10px;
+  }
+
+  .customer-stats {
+    gap: 8px;
+  }
+
+  .stat-card {
+    padding: 14px 11px;
+  }
+
+  .stat-card h2 {
+    font-size: 23px;
+  }
+
+  .section-heading {
+    flex-direction: column;
+  }
+
+  .customer-welcome h1 {
+    font-size: 22px;
+  }
+}

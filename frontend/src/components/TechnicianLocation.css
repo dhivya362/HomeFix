@@ -1,0 +1,119 @@
+
+.technician-location-card {
+  position: static;
+  width: 100%;
+  max-width: 650px;
+  box-sizing: border-box;
+  margin: 30px auto;
+  padding: 28px;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 18px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  font-family: Arial, sans-serif;
+}
+
+/* Page normal-ah scroll aagattum */
+html,
+body {
+  height: auto;
+  min-height: 100%;
+  overflow-y: auto;
+}
+
+/* Location card content-oda serndhu scroll aagum */
+.location-description {
+  margin-bottom: 22px;
+  color: #64748b;
+  line-height: 1.6;
+}
+
+.location-label {
+  display: block;
+  margin-bottom: 8px;
+  color: #334155;
+  font-weight: 600;
+}
+
+.location-input {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 12px 14px;
+  margin-bottom: 16px;
+  border: 1px solid #cbd5e1;
+  border-radius: 9px;
+  font-size: 15px;
+}
+
+.location-share-button {
+  width: 100%;
+  padding: 13px 18px;
+  border: none;
+  border-radius: 9px;
+  background: #2563eb;
+  color: white;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.location-share-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.location-message {
+  margin-top: 18px;
+  padding: 12px;
+  border-radius: 9px;
+  background: #eff6ff;
+  color: #1d4ed8;
+  overflow-wrap: anywhere;
+}
+
+.location-coordinates {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.coordinate-box {
+  padding: 14px;
+  border-radius: 10px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  min-width: 0;
+}
+
+.coordinate-box span {
+  display: block;
+  margin-bottom: 8px;
+  color: #64748b;
+  font-size: 13px;
+}
+
+.coordinate-box strong {
+  overflow-wrap: anywhere;
+  color: #0f172a;
+}
+
+.location-map-link {
+  display: block;
+  margin-top: 16px;
+  text-align: center;
+  text-decoration: none;
+  color: #2563eb;
+  font-weight: 600;
+}
+
+@media (max-width: 480px) {
+  .technician-location-card {
+    margin: 16px auto;
+    padding: 20px;
+  }
+
+  .location-coordinates {
+    grid-template-columns: 1fr;
+  }
+}
